@@ -1,5 +1,5 @@
 # Next number in list = 0 if prior number new in list, index of prior - index of last appearance of prior otherwise
-# Part 2 is just a bigger target - maybe there's a smart way to figure out if a sequence occurs? This is O(n) in any event, just uses a bunch of memory
+# Part 2 is just a bigger target
 
 input_file = "inputs/15.txt"
 input = []

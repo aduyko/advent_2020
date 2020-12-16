@@ -1,5 +1,5 @@
-# To be honest I don't understand this one at all. I came close but no cigar, the math just didn't add up for me.
-# If buses wait idx minutes to leave, at what timestamp after 0 will they all be lined up such that they leave idx minutes after each other?
+# I kept getting confused about the prompt for this one, and got confused looking for a more math-y solution calculating phases. I resorted to peeking online to figure it out.
+# At what timestamp will all the buses be lined up such that they leave idx minutes after each other?
 
 input_file = "inputs/13.txt"
 buses = []
@@ -11,13 +11,12 @@ end
 timestamp = 0
 step = 1
 buses.each_with_index do |bus, offset|
-  if bus.nil?
-    next
-  end
+  next if bus.nil? # Skip 'x'
+  # timestamp here is always going to be when all prior buses are in sync
   until (timestamp + offset) % bus == 0 do
     timestamp += step
   end
-  # I think the trick is that if any of the numbers do have common factors, they never sync up, they have to be relatively prime, so it wasn't intuitive to me that the minimum period length will therefore always be step * bus
+  # step = new LCM // buses will always be relatively prime
   step = step * bus
 end
 
