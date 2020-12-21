@@ -18,17 +18,7 @@ File.open(input_file) do |f|
   iterations.times do; input << Array.new(row_length) { Array.new(row_length,".") }; end
 end
 
-directions_to_check = []
-number_directions = [-1,0,1]
-number_directions.each do |i|
-  number_directions.each do |j|
-    number_directions.each do |z|
-      unless i == 0 && j == 0 && z == 0
-        directions_to_check << [i,j,z]
-      end
-    end
-  end
-end
+directions_to_check = [-1,0,1].repeated_permutation(3).to_a.reject { |x| x==[0,0,0,0] }
 
 active_cells = 0
 iterations.times do |i|
