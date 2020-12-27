@@ -18,7 +18,7 @@ File.open(input_file) do |f|
   iterations.times do; input << Array.new(row_length) { Array.new(row_length,".") }; end
 end
 
-directions_to_check = [-1,0,1].repeated_permutation(3).to_a.reject { |x| x==[0,0,0,0] }
+directions_to_check = [-1,0,1].repeated_permutation(3).to_a.reject { |x| x==[0,0,0] }
 
 active_cells = 0
 iterations.times do |i|
